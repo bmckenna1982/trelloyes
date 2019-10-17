@@ -9,4 +9,9 @@ it ('renders without crashing', () => {
     ReactDOM.unmountComponentAtNode(div);
 });
 
-// it ('')
+it ('renders the ui as expected', () => {
+    const tree = renderer
+        .create(<Card Title="Test" content="Testing Card"/>)
+        .toJSON();
+    expect (tree).toMatchSnapshot();
+});
